@@ -1,0 +1,32 @@
+
+
+.MaterialForm {
+display: flex;
+flex-direction: column;
+
+align-items: center;
+justify-content: center;
+width: 100vw;
+height: 100vh;
+}
+
+.MaterialForm > form {
+display: flex;
+flex-direction: column;
+padding: 32px;
+min-width: 350px;
+border-radius: 8px;
+margin-bottom: 50px;
+}
+
+
+.Update-Form {
+    background-color: #2b54a8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }

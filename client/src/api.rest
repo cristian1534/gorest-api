@@ -1,0 +1,36 @@
+### GETTING USERS ### 
+GET https://gorest.co.in/public/v1/users
+
+Accept: "application/json"
+Content-Type: "application/json"
+Authorization: "Bearer 22ceaf0bb716ffa49dbcd56cca436f764f241804f3258c384ab12bc30694868e"
+
+### GETTING ONE USER ### 
+GET https://gorest.co.in/public/v1/users/236096
+
+Accept: "application/json"
+Content-Type: "application/json"
+Authorization: "Bearer 22ceaf0bb716ffa49dbcd56cca436f764f241804f3258c384ab12bc30694868e"
+
+### UPDATING ONE USER ### 
+PUT https://gorest.co.in/public/v1/users/236096
+
+Accept: "application/json"
+Content-Type: "application/json"
+Authorization: "Bearer 22ceaf0bb716ffa49dbcd56cca436f764f241804f3258c384ab12bc30694868e"
+
+{
+    "name": "Cristian Machuca",
+    "email": "cristian@test.co",
+    "gender": "male",
+    "status": "inactive"
+  }
+
+
+### DELETING ONE USER ### 
+POST https://gorest.co.in/public/v1/users/236096
+
+Accept: "application/json"
+Content-Type: "application/json"
+Authorization: "Bearer 22ceaf0bb716ffa49dbcd56cca436f764f241804f3258c384ab12bc30694868e"
+

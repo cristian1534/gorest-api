@@ -1,0 +1,42 @@
+APP fetching data from https://gorest.co.in/
+
+
+Routes:
+
+POST /public/v1/users	Create a new user
+GET /public/v1/users/642	Get user details
+PUT|PATCH /public/v1/users/642	Update user details
+DELETE /public/v1/users/642	Delete user
+
+Frontend: 
+    - React
+    - React-Router-Dom
+    - Redux
+    - Redux-Thunk
+    - Material UI
+    - Sweetalert
+    - Axios
+
+Backend: 
+    - NodeJS
+    - Express
+    - Mocha-Chai (Simulation of testing por REST API Backend with a Fake Mongo DB connection using GOREST endpoint)
+    - Mongoose (Database simulated to connect on MongoDB, due to the fake API the connection is not matching with
+      the routes and responses)
+    
+Code:
+    - Deployed on GITHUB.
+
+Deploy:
+    - Netifly (custom URL.netifly.app)
+    - https://gorest-api.netlify.app/
+
+
+Project Description:
+    - Simulation of Dashboard fetching data from https://gorest.co.in/, starting simulating a Register por a new
+      user, redirecting to /login and then to /home where can be shown all data from API. 
+      Data can be filter by menu as MALE or FEMALE, editable cell for them.
+      Fake validation with Token from GOREST API, and Fake register and login with fake token located in localstorage.
+      As no real Auth from API, for EDITING is not allowed changes. Keeping lazyloading for Components and 404 for Not Found Pages.
+
+
