@@ -1,15 +1,24 @@
 import axios from "axios";
 import swal from "sweetalert";
 
-const token =
-  "22ceaf0bb716ffa49dbcd56cca436f764f241804f3258c384ab12bc30694868e";
 
-const getUsersUrl = "https://gorest.co.in/public/v1/users";
-const getOneUserUrl = "https://gorest.co.in/public/v1/users";
-const updateUserUrl = "https://gorest.co.in/public/v1/users";
+const token = process.env.REACT_APP_TOKEN
 
-export const fetchUsers = () => {
-  return axios.get(getUsersUrl, {
+
+const apiUrl = "https://gorest.co.in/public/v1/users?page="
+
+export const fetchUsers = async (page) => {
+  return await axios.get(`https://gorest.co.in/public/v1/users?page=${page}`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+    
+  });
+};
+
+export const fetchOneUser = async (id) => {
+  return await axios.get(`${apiUrl}/${id}`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: token,
@@ -17,18 +26,9 @@ export const fetchUsers = () => {
   });
 };
 
-export const fetchOneUser = (id) => {
-  return axios.get(`${getOneUserUrl}/${id}`, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: token,
-    },
-  });
-};
-
-export const updateUser = (id, values) => {
-  return axios
-    .put(`${updateUserUrl}/${id}`, values, {
+export const updateUser = async (id, values) => {
+  return await axios
+    .put(`${apiUrl}/${id}`, values, {
       headers: {
         "Content-Type": "application/json",
         Authorization: token,

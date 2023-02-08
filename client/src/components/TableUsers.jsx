@@ -4,11 +4,14 @@ import { Avatar, Box, Typography } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { Container } from "@mui/system";
 import CustomButton from "../customHooks/CustomButton";
+import Loader from "../components/Loader";
 
 const TableUsers = ({ dataSource, isFetching }) => {
-  const [pageSize, setPageSize] = useState(3);
-  const columns = useMemo(
-    () => [
+  const [pageSize, setPageSize] = useState(5);
+  console.log(dataSource)
+
+  const columns =
+    [
       {
         title: "Picture",
         field: "photoURL",
@@ -25,7 +28,7 @@ const TableUsers = ({ dataSource, isFetching }) => {
         title: "Id",
         field: "id",
         width: 70,
-        sortable: false
+        sortable: false,
       },
       {
         title: "Name",
@@ -38,7 +41,6 @@ const TableUsers = ({ dataSource, isFetching }) => {
         field: "email",
         width: 280,
         sortable: false,
-
       },
       {
         title: "Gender",
@@ -52,7 +54,7 @@ const TableUsers = ({ dataSource, isFetching }) => {
         title: "Status",
         field: "status",
         width: 100,
-        sortable: false
+        sortable: false,
       },
       {
         title: "Edit",
@@ -61,36 +63,39 @@ const TableUsers = ({ dataSource, isFetching }) => {
         width: 100,
         renderCell: (params) => <CustomButton params={params} />,
       },
-    ],
-    []
-  );
+    ]
+    
 
   return (
     <Container maxWidth="md">
-      <Box
-        sx={{
-          height: 400,
-          widows: "100%",
-        }}
-      >
-        <Typography
-          variant="h3"
-          component="h3"
-          color="#29b6f6"
-          sx={{ textAlign: "center", mt: 3, mb: 3 }}
-        >
-          GO REST API
-        </Typography>
-        <DataGrid
-          columns={columns}
-          rows={dataSource}
-          getRowId={(row) => row.id}
-          rowsPerPageOptions={[1, 2, 3]}
-          pageSize={pageSize}
-          onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-          textAlign="center"
-        />
-      </Box>
+      {dataSource ? (
+         <Box
+         sx={{
+           height: 400,
+           widows: "100%",
+         }}
+       >
+         <Typography
+           variant="h3"
+           component="h3"
+           color="#29b6f6"
+           sx={{ textAlign: "center", mt: 3, mb: 3 }}
+         >
+           GO REST API
+         </Typography>
+         <DataGrid
+           columns={columns}
+           rows={dataSource}
+           getRowId={(row) => row.id}
+           rowsPerPageOptions={[5, 10, 15]}
+           pageSize={pageSize}
+           onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+           textAlign="center"
+         />
+       </Box>
+      ):
+      <Loader/>} 
+     
     </Container>
   );
 };

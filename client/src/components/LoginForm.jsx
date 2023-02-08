@@ -63,7 +63,7 @@ const LoginForm = () => {
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                   <TextField
                     error={false}
-                    label="Password"
+                    type="Password"
                     margin="dense"
                     fullWidth
                     variant="outlined"
@@ -85,7 +85,7 @@ const LoginForm = () => {
                 </Button>
               </Grid>
               <Grid>
-                <Link to="/register">
+                <Link to="/">
                   <Typography>Register HERE if do not have account.</Typography>
                 </Link>
               </Grid>

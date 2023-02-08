@@ -1,12 +1,12 @@
 import * as api from "../api";
 import { GET_USERS, GET_ONE_USER, UPDATE_USER } from "../constants/constants";
 
-export const getUsers = () => async (dispatch) => {
+export const getUsers = (page) => async (dispatch) => {
   try {
-    const { data } = await api.fetchUsers();
+    const { data } = await api.fetchUsers(page);
     dispatch({ type: GET_USERS, payload: data });
   } catch (err) {
-    console.log(err.message);
+    console.err(err.message);
   }
 };
 
