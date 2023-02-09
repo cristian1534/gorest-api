@@ -5,7 +5,7 @@ import swal from "sweetalert";
 const token = process.env.REACT_APP_TOKEN
 
 
-const apiUrl = "https://gorest.co.in/public/v1/users?page="
+const baseUrl = "https://gorest.co.in/public/v1/users"
 
 export const fetchUsers = async (page) => {
   return await axios.get(`https://gorest.co.in/public/v1/users?page=${page}`, {
@@ -18,7 +18,7 @@ export const fetchUsers = async (page) => {
 };
 
 export const fetchOneUser = async (id) => {
-  return await axios.get(`${apiUrl}/${id}`, {
+  return await axios.get(`${baseUrl}/${id}`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: token,
@@ -28,7 +28,7 @@ export const fetchOneUser = async (id) => {
 
 export const updateUser = async (id, values) => {
   return await axios
-    .put(`${apiUrl}/${id}`, values, {
+    .put(`${baseUrl}/${id}`, values, {
       headers: {
         "Content-Type": "application/json",
         Authorization: token,
